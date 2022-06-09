@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fullname',
+        'username',
+        'address', 
+        'gender', 
+        'phone',
         'email',
-        'password',
+        
     ];
 
     /**
@@ -41,4 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function users() {
+        return $this->hasMany('App\Models\FlightBooking');
+    }
 }
